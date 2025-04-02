@@ -1,40 +1,26 @@
-<!DOCTYPE html>
+<!-- projects.html -->
+<h1>Projects</h1>
+<ul class="card-list">
+    <!-- Cards will be populated by projects.js -->
+</ul>
 
-<html>
-  <head>
-    <title>Conor Brown</title>
-  </head>
-  <body>
-    <h1>Projects</h1>
-    <ul class = "card-list">
-        <li class = "card-item">
-            <div class="card">
-                <img src="images/ai-image-gen.jpg">
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                </div>
+<!-- Add modal structure here -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 class="modal-project-title"></h2>
+        <p class="modal-project-description"></p>
+        <div class="carousel-container">
+            <div class="carousel-slides">
+                <!-- Images injected via JS -->
             </div>
-        </li>
-        <li class = "card-item">
-            <div class="card">
-                <img src="images/ai-image-gen.jpg">
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                </div>
+            <a class="prev">❮</a>
+            <a class="next">❯</a>
+            <div class="dot-container">
+                <!-- Dots injected via JS -->
             </div>
-        </li>
-        <li class = "card-item">
-            <div class="card">
-                <img src="images/ai-image-gen.jpg">
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                </div>
-            </div>
-        </li>
-    </ul>
-    <script src="projects.js"></script>
-  </body>
-</html>
+        </div>
+    </div>
+</div>
+
+<!-- Remove the script tag from here -->
