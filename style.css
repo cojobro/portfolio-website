@@ -154,6 +154,131 @@ img {
     padding: 2px 16px;
 }
 
+/* Timeline Container */
+.timeline {
+    position: relative;
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.timeline-card {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 40px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+}
+
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    bottom: 0;
+    width: 2px;
+    background-color: #ddd;
+}
+
+.timeline-content {
+    background: #f9f9f9;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.timeline-content h3 {
+    margin: 0 0 5px;
+}
+
+.timeline-content p {
+    margin: 5px 0;
+}
+
+.timeline-content button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.timeline-content button:hover {
+    background-color: #45a049;
+}
+
+/* Project Cards */
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.card-item {
+    width: 300px;
+}
+
+.card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card .container {
+    padding: 10px;
+}
+
+.card h4 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.card p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.card button {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #45a049;
+}
 body {
     margin: 10px; 
     padding-top: 40px; /* Add padding to body to avoid content being hidden behind the fixed nav */

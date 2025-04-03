@@ -2,6 +2,21 @@
 <html>
   <head>
     <title>Conor Brown</title>
+    <style>
+      .form-group {
+        margin-bottom: 10px;
+      }
+
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+
+      .success {
+        color: green;
+        font-size: 14px;
+      }
+    </style>
   </head>
   <body>
     <h1>Contact</h1>
@@ -9,17 +24,27 @@
     <!-- Contact Form -->
     <section>
       <h2>Get in Touch</h2>
-      <form action="submit_form.php" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+      <form id="contactForm" onsubmit="return validateForm()">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <span class="error" id="nameError"></span>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <span class="error" id="emailError"></span>
+        </div>
 
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
+        <div class="form-group">
+          <label for="message">Message:</label><br>
+          <textarea id="message" name="message" rows="5" cols="30" required></textarea>
+          <span class="error" id="messageError"></span>
+        </div>
 
         <button type="submit">Send</button>
+        <p class="success" id="successMessage"></p>
       </form>
     </section>
 
@@ -27,20 +52,67 @@
     <section>
       <h2>Connect with Me</h2>
       <ul>
-        <li><a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a></li>
-        <li><a href="https://github.com/your-username" target="_blank">GitHub</a></li>
-        <li><a href="https://twitter.com/your-handle" target="_blank">Twitter</a></li>
+        <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/cojobro" target="_blank">GitHub</a></li>
       </ul>
     </section>
 
     <!-- Contact Information -->
     <section>
       <h2>Contact Information</h2>
-      <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-      <p>Phone: +1 (123) 456-7890</p>
-      <p>Location: Your City, Country</p>
+      <p>Email: <a href="browncon505@gmail.com">browncon505@gmail.com</a></p>
+      <p>Phone: +1 (615) 339-3024</p>
+      <p>Location: Knoxville TN, United States</p>
     </section>
 
-    <script src="projects.js"></script>
+    <script>
+      function validateForm() {
+        let valid = true;
+
+        // Name validation
+        const name = document.getElementById("name").value.trim();
+        if (name === "") {
+          document.getElementById("nameError").innerHTML = "Name is required";
+          valid = false;
+        } else {
+          document.getElementById("nameError").innerHTML = "";
+        }
+
+        // Email validation
+        const email = document.getElementById("email").value.trim();
+        if (email === "") {
+          document.getElementById("emailError").innerHTML = "Email is required";
+          valid = false;
+        } else if (!isValidEmail(email)) {
+          document.getElementById("emailError").innerHTML = "Invalid email format";
+          valid = false;
+        } else {
+          document.getElementById("emailError").innerHTML = "";
+        }
+
+        // Message validation
+        const message = document.getElementById("message").value.trim();
+        if (message === "") {
+          document.getElementById("messageError").innerHTML = "Message is required";
+          valid = false;
+        } else {
+          document.getElementById("messageError").innerHTML = "";
+        }
+
+        // Success message
+        if (valid) {
+          document.getElementById("successMessage").innerHTML = "Form submitted successfully!";
+        } else {
+          document.getElementById("successMessage").innerHTML = "";
+        }
+
+        return valid;
+      }
+
+      function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+    </script>
   </body>
 </html>
